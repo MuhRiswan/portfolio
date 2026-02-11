@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Contact = () => {
   return (
-    <section className="py-20 px-4 md:py-32 md:px-6">
+    <section id="contact" className="py-20 px-4 md:py-32 md:px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 bg-surface-dark border border-surface-border rounded-[2rem] md:rounded-[3rem] p-6 md:p-10 lg:p-16 overflow-hidden relative shadow-2xl">
           <div className="absolute top-0 right-0 -mt-24 -mr-24 w-80 h-80 md:w-96 md:h-96 bg-primary/20 blur-[100px] md:blur-[120px] rounded-full pointer-events-none"></div>

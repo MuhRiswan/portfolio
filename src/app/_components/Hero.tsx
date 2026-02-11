@@ -39,7 +39,7 @@ const Hero = () => {
                 View Projects
               </Link>
             </Button>
-            <Button variant="secondary" size="xl">
+            <Button variant="secondary" size="xl" disabled>
               Download CV
             </Button>
           </div>

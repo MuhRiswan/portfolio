@@ -54,7 +54,9 @@ const Navbar = () => {
           ))}
         </nav> */}
         <button className="hidden sm:block btn-primary">
+          <Link href="#contact">
           Hire Me
+          </Link>
         </button>
         {/* <div className="flex items-center gap-4">
           <button className="hidden sm:block btn-primary">
