@@ -3,9 +3,10 @@ import { lazy, Suspense } from "react";
 import ProjectHeader from "./_components/ProjectHeader";
 import LoadingCarousel from "./_components/LoadingCarousel";
 import ProjectCarousel from "./_components/ProjectCarousel";
+import { redirect } from "next/navigation";
 
 const ProjectSidebar = lazy(() => import('@/app/project/[id]/_components/ProjectSidebar'));
-const ProjectMetrics = lazy(() => import('@/app/project/[id]/_components/ProjectMetrics'));
+// const ProjectMetrics = lazy(() => import('@/app/project/[id]/_components/ProjectMetrics'));
 const ProjectContent = lazy(() => import('@/app/project/[id]/_components/ProjectContent'));
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
@@ -38,7 +39,6 @@ export async function generateStaticParams() {
 }
 
 
-import { redirect } from "next/navigation";
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;

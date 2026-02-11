@@ -57,7 +57,7 @@ const Hero = () => {
               height={500}
               className="w-full h-full object-cover rounded-2xl shadow-2xl transition-transform hover:scale-[1.04] duration-700"
               style={{ objectPosition: "center 42%" }}
-              loading="lazy"
+              priority
             />
             <div className="absolute bottom-6 left-2 bg-surface-dark/95 backdrop-blur-xl p-2.5 rounded-xl border border-surface-border shadow-xl animate-bounce-slow">
               <div className="flex items-center gap-2">
