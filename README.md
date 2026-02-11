@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# M.Riswan — Portfolio
 
-## Getting Started
+A modern, high-performance portfolio website built with Next.js 15 and TypeScript. Showcases professional experience, projects, and contact information with a polished dark-mode design system.
 
-First, run the development server:
+---
+
+## Tech Stack
+
+| Layer          | Technologies                                         |
+| -------------- | ---------------------------------------------------- |
+| **Framework**  | Next.js 15 (App Router, Turbopack)                   |
+| **Language**   | TypeScript 5                                         |
+| **Styling**    | Tailwind CSS 4, PostCSS                              |
+| **Components** | shadcn/ui (New York), Radix UI                       |
+| **Icons**      | Lucide React                                         |
+| **Utilities**  | class-variance-authority (cva), clsx, tailwind-merge |
+| **Animations** | tw-animate-css                                       |
+| **Fonts**      | Geist, Geist Mono (next/font)                        |
+
+---
+
+## Design System
+
+### Color Palette
+
+- **Primary**: Neon Blue (`#256af4`) untuk aksen dan CTA
+- **Base**: OKLCH color space untuk konsistensi dan aksesibilitas
+- **Mode**: Dark theme sebagai default (light mode-ready via CSS variables)
+
+### Tokens
+
+- Custom CSS variables untuk `background`, `foreground`, `primary`, `secondary`, `muted`, `accent`, `card`, `border`, dll.
+- Radius scale: `sm` → `4xl` (berbasis `--radius: 0.75rem`)
+- Surface tokens: `surface-dark`, `surface-border` untuk kartu dan layout
+
+### Utility Classes
+
+- `.btn-primary` — Primary button dengan shadow dan hover state
+- `.glass-card` — Card dengan backdrop-blur dan border halus
+- `.grid-pattern` — Background grid subtle
+- `.custom-scrollbar` — Styled scrollbar
+- `.glow-blue` — Soft blue glow effect
+- Animasi: `animate-bounce-slow`, `animate-pulse-slow`, `anchor-highlight` untuk scroll target
+
+### Typography
+
+- **Sans**: Geist (variable font)
+- **Mono**: Geist Mono
+- Font weights: semibold, bold, black untuk hierarchy yang jelas
+
+---
+
+### Prerequisites
+
+- Node.js 20+
+- npm / pnpm / yarn / bun
+
+### Install
+
+```bash
+git clone https://github.com/your-username/portfolio.git
+cd portfolio
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+### Lint
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build
+```
 
-## Deploy on Vercel
+Environment: tidak memerlukan environment variables untuk run basic.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+© 2026 M.Riswan. Built with Next.js.
