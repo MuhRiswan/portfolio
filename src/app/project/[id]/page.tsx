@@ -62,7 +62,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             />
           </Suspense>
           <ProjectContent project={project} />
-          <ProjectMetrics metrics={project.metrics} />
+          {/* <ProjectMetrics metrics={project.metrics} /> */}
         </div>
 
         <div className="w-full lg:w-80">
