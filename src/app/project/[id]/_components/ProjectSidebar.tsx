@@ -49,14 +49,14 @@ export default function ProjectSidebar({ techStack, details }: ProjectSidebarPro
         </div>
       </div>
 
-      <div className="p-10 rounded-[2rem] bg-primary/10 border border-primary/20 flex flex-col items-center text-center relative overflow-hidden group">
+      {/* <div className="p-10 rounded-[2rem] bg-primary/10 border border-primary/20 flex flex-col items-center text-center relative overflow-hidden group">
         <div className="absolute inset-0 bg-primary/5 blur-3xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
         <Lightbulb />
         <p className="text-sm font-semibold text-primary mb-6 relative z-10">Want to build something similar?</p>
         <button className="w-full py-4 rounded-xl bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:scale-[1.03] transition-all relative z-10">
           Let&apos;s Talk
         </button>
-      </div>
+      </div> */}
     </aside>
   );
 }
