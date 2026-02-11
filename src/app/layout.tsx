@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,10 +36,13 @@ export default function RootLayout({
           </main>
           <footer className="py-12 border-t border-border mt-12 bg-card/10">
             <div className="max-w-7xl mx-auto px-6 text-center">
-              <p className="text-muted-foreground text-sm">© 2026 M.RISWAN. Built a Portfolio App</p>
+              <p className="text-muted-foreground text-sm">
+                © 2026 M.RISWAN. Built a Portfolio App
+              </p>
             </div>
           </footer>
         </div>
+        <Analytics />
       </body>
     </html>
   );
