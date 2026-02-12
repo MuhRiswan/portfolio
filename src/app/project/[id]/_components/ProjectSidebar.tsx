@@ -1,4 +1,4 @@
-import { Box, Lightbulb } from "lucide-react";
+import { Box } from "lucide-react";
 
 interface ProjectDetails {
   role: string;
