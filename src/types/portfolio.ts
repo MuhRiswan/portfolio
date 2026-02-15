@@ -38,4 +38,4 @@ export interface SkillCategory {
   skills: string[];
 }
 
-export type Category = "All" | "Next.js" | "E-Commerce" | "Dashboard" | "Tools";
+export type Category = "All" | "Next.js" | "Nuxt.js" | "Vue.js" | "React.js" | "UI/UX" | "Tools";

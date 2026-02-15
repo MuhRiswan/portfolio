@@ -1,4 +1,4 @@
-import { Project, ExperienceItem, SkillCategory, Category } from "@/types/portfolio";
+import { ExperienceItem, SkillCategory, Category } from "@/types/portfolio";
 
 export const portfolioConfig = {
   name: "M.RISWAN",
@@ -79,79 +79,79 @@ export const EXPERIENCE: ExperienceItem[] = [
   },
 ];
 
-export const PROJECTS: Project[] = [
-  {
-    id: "project-1",
-    title: "Marishop",
-    subTitle: "Multi-Tenant Commerce Platform",
-    categories: ["E-Commerce", "Next.js"],
-    description: "A commerce platform enabling each client to have their own unique storefront appearance and configuration, built with Next.js 15 and TypeScript.",
-    longDescription: "Marishop is a modern, multi-tenant commerce solution designed to support many clients. Each client can fully customize their storefront design, configuration, and requirements. This platform prioritizes enterprise-grade transaction stability, highly flexible UI, high performance, and easy integration for new components, while ensuring the application remains lightweight and user-friendly.",
-    challenge: "Designing an architecture that allows each client to independently manage their storefront appearance and configuration, while maintaining great performance, lightweight access, and an intuitive, comfortable shopping experience that avoids confusing the user.",
-    solution: "Utilizing Next.js 15 with dynamic per-client configuration (themes/settings). Global state management is handled by Zustand, checkout form validation uses Zod, and the application is optimized throughout for exceptional performance, accessibility, and clear, user-friendly navigation, making shopping simple and enjoyable.",
-    imageUrl: [
-      {
-        url: "/img/projects/marishop/list-product-page.png",
-        title: "Project List Page",
-      },
-      {
-        url: "/img/projects/marishop/detail-product-page.png",
-        title: "Detail Product page",
-      },
-      {
-        url: "/img/projects/marishop/checkout-page.png",
-        title: "Checkout Page",
-      },
-    ],
-    techStack: ["Next.js 15", "TypeScript", "Tailwind CSS", "Zustand", "Zod"],
-    metrics: [
-      { label: "Stability   Increase", value: "+35%" },
-      { label: "Checkout Time", value: "-20s" },
-      { label: "Mobile Traffic", value: "60%" },
-    ],
-    details: {
-      role: "Front End Engineer",
-      timeline: "Dec 2024 - Present",
-      client: "Mari Works Solution",
-    },
-    liveUrl: "#",
-  },
-  // {
-  //   id: "project-2",
-  //   title: "Marichat",
-  //   subTitle: "Ordering App sclabe",
-  //   categories: ["Dashboard", "Next.js"],
-  //   description: "Real-time business analytics platform with advanced data visualization using Tremor and Next.js SSR.",
-  //   longDescription: "A professional-grade analytics tool for corporate data visibility, featuring server-side rendering for lightning-fast initial loads and SEO-ready architecture.",
-  //   challenge: "Visualizing large datasets without compromising client-side performance.",
-  //   solution: "Used Tremor's component library integrated with Next.js SSR to handle data processing on the server, ensuring the UI remains fluid.",
-  //   imageUrl: [
-  //     {
-  //       url: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1600&auto=format&fit=crop",
-  //       title: "Marishop commerce dashboard on screen",
-  //     },
-  //     {
-  //       url: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1600&auto=format&fit=crop",
-  //       title: "Marishop commerce dashboard on screen",
-  //     },
-  //     {
-  //       url: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1600&auto=format&fit=crop",
-  //       title: "Marishop commerce dashboard on screen",
-  //     },
-  //   ],
-  //   techStack: ["Next.js", "Tremor", "TypeScript", "Tailwind CSS"],
-  //   metrics: [
-  //     { label: "Lighthouse Score", value: "98" },
-  //     { label: "Data Visibility", value: "100%" },
-  //     { label: "User Retention", value: "+15%" },
-  //   ],
-  //   details: {
-  //     role: "Front End Intern",
-  //     timeline: "Aug - Dec 2023",
-  //     client: "Serba Mulia Group",
-  //   },
-  //   liveUrl: "", // Testing flexible button (no live url)
-  // },
-];
+// export const PROJECTS: Project[] = [
+//   {
+//     id: "project-1",
+//     title: "Marishop",
+//     subTitle: "Multi-Tenant Commerce Platform",
+//     categories: ["Next.js"],
+//     description: "A commerce platform enabling each client to have their own unique storefront appearance and configuration, built with Next.js 15 and TypeScript.",
+//     longDescription: "Marishop is a modern, multi-tenant commerce solution designed to support many clients. Each client can fully customize their storefront design, configuration, and requirements. This platform prioritizes enterprise-grade transaction stability, highly flexible UI, high performance, and easy integration for new components, while ensuring the application remains lightweight and user-friendly.",
+//     challenge: "Designing an architecture that allows each client to independently manage their storefront appearance and configuration, while maintaining great performance, lightweight access, and an intuitive, comfortable shopping experience that avoids confusing the user.",
+//     solution: "Utilizing Next.js 15 with dynamic per-client configuration (themes/settings). Global state management is handled by Zustand, checkout form validation uses Zod, and the application is optimized throughout for exceptional performance, accessibility, and clear, user-friendly navigation, making shopping simple and enjoyable.",
+//     imageUrl: [
+//       {
+//         url: "/img/projects/marishop/list-product-page.png",
+//         title: "Project List Page",
+//       },
+//       {
+//         url: "/img/projects/marishop/detail-product-page.png",
+//         title: "Detail Product page",
+//       },
+//       {
+//         url: "/img/projects/marishop/checkout-page.png",
+//         title: "Checkout Page",
+//       },
+//     ],
+//     techStack: ["Next.js 15", "TypeScript", "Tailwind CSS", "Zustand", "Zod"],
+//     metrics: [
+//       { label: "Stability   Increase", value: "+35%" },
+//       { label: "Checkout Time", value: "-20s" },
+//       { label: "Mobile Traffic", value: "60%" },
+//     ],
+//     details: {
+//       role: "Front End Engineer",
+//       timeline: "Dec 2024 - Present",
+//       client: "Mari Works Solution",
+//     },
+//     liveUrl: "#",
+//   },
+//   // {
+//   //   id: "project-2",
+//   //   title: "Marichat",
+//   //   subTitle: "Ordering App sclabe",
+//   //   categories: ["Dashboard", "Next.js"],
+//   //   description: "Real-time business analytics platform with advanced data visualization using Tremor and Next.js SSR.",
+//   //   longDescription: "A professional-grade analytics tool for corporate data visibility, featuring server-side rendering for lightning-fast initial loads and SEO-ready architecture.",
+//   //   challenge: "Visualizing large datasets without compromising client-side performance.",
+//   //   solution: "Used Tremor's component library integrated with Next.js SSR to handle data processing on the server, ensuring the UI remains fluid.",
+//   //   imageUrl: [
+//   //     {
+//   //       url: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1600&auto=format&fit=crop",
+//   //       title: "Marishop commerce dashboard on screen",
+//   //     },
+//   //     {
+//   //       url: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1600&auto=format&fit=crop",
+//   //       title: "Marishop commerce dashboard on screen",
+//   //     },
+//   //     {
+//   //       url: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1600&auto=format&fit=crop",
+//   //       title: "Marishop commerce dashboard on screen",
+//   //     },
+//   //   ],
+//   //   techStack: ["Next.js", "Tremor", "TypeScript", "Tailwind CSS"],
+//   //   metrics: [
+//   //     { label: "Lighthouse Score", value: "98" },
+//   //     { label: "Data Visibility", value: "100%" },
+//   //     { label: "User Retention", value: "+15%" },
+//   //   ],
+//   //   details: {
+//   //     role: "Front End Intern",
+//   //     timeline: "Aug - Dec 2023",
+//   //     client: "Serba Mulia Group",
+//   //   },
+//   //   liveUrl: "", // Testing flexible button (no live url)
+//   // },
+// ];
 
-export const CATEGORIES: Category[] = ["All", "Next.js", "E-Commerce", "Dashboard", "Tools"];
+export const CATEGORIES: Category[] = ["All", "Next.js", "Nuxt.js", "React.js", "Vue.js", "UI/UX", "Tools"];
