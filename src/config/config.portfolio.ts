@@ -154,4 +154,4 @@ export const EXPERIENCE: ExperienceItem[] = [
 //   // },
 // ];
 
-export const CATEGORIES: Category[] = ["All", "Next.js", "Nuxt.js", "React.js", "Vue.js", "UI/UX", "Tools"];
+export const CATEGORIES: Category[] = ["All", "Next.js", "Nuxt.js", "React.js", "Vue.js", "UI/UX"];
