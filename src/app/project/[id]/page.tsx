@@ -1,17 +1,22 @@
-import { PROJECTS } from "@/config/config.portfolio";
+// Revalidate data firebase agar refetch
+export const revalidate = 3600;
+
+import { db } from "@/lib/firebase";
+import { collection, getDocs } from "firebase/firestore";
 import { lazy, Suspense } from "react";
 import ProjectHeader from "./_components/ProjectHeader";
 import LoadingCarousel from "./_components/LoadingCarousel";
 import ProjectCarousel from "./_components/ProjectCarousel";
 import { redirect } from "next/navigation";
+import { getProjectById, PROJECTS_REVALIDATE } from "@/services/projects";
 
 const ProjectSidebar = lazy(() => import('@/app/project/[id]/_components/ProjectSidebar'));
-// const ProjectMetrics = lazy(() => import('@/app/project/[id]/_components/ProjectMetrics'));
 const ProjectContent = lazy(() => import('@/app/project/[id]/_components/ProjectContent'));
+
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const project = PROJECTS.find(p => p.id === id);
+  const project = await getProjectById(id);
 
   if (!project) {
     return {
@@ -26,23 +31,22 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     openGraph: {
       title: project.title,
       description: project.description,
-      images: [project.imageUrl],
+      images: [project.imageUrl[0]?.url],
     },
   };
 }
 
-// Generate static params untuk SSG (opsional)
+// Generate Static Params agar halaman cepat diakses (SSG)
 export async function generateStaticParams() {
-  return PROJECTS.map(project => ({
-    id: project.id,
+  const querySnapshot = await getDocs(collection(db, "projects"));
+  return querySnapshot.docs.map(doc => ({
+    id: doc.id,
   }));
 }
 
-
-
 export default async function ProjectDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const resolvedParams = await params;
-  const project = PROJECTS.find(p => p.id === resolvedParams.id);
+  const { id } = await params;
+  const project = await getProjectById(id);
 
   if (!project) {
     redirect("/");
@@ -57,12 +61,9 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       <div className="flex flex-col lg:flex-row gap-10 mt-10">
         <div className="flex-1 space-y-12 overflow-hidden">
           <Suspense fallback={<LoadingCarousel />}>
-            <ProjectCarousel
-              images={images}
-            />
+            <ProjectCarousel images={images} />
           </Suspense>
           <ProjectContent project={project} />
-          {/* <ProjectMetrics metrics={project.metrics} /> */}
         </div>
 
         <div className="w-full lg:w-80">

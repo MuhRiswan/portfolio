@@ -27,7 +27,7 @@ export default function ProjectHeader({ project }: ProjectHeaderProps) {
           <h1 className="text-white text-4xl md:text-5xl font-black leading-tight tracking-tight">
             {project.title}
           </h1>
-          <p className="text-[#90a4cb] text-lg max-w-2xl font-normal">
+          <p className="text-[#90a4cb] text-lg w-full font-normal">
             {project.description}
           </p>
         </div>
