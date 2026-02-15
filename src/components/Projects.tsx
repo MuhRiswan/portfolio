@@ -1,24 +1,27 @@
 "use client"
-import { CATEGORIES, PROJECTS } from '@/config/config.portfolio'
-import { Category } from '@/types/portfolio';
-import { useMemo, useState } from 'react';
+import { useState, useMemo } from 'react';
+import { CATEGORIES } from '@/config/config.portfolio'
+import { Category, Project } from '@/types/portfolio';
 import ProjectCard from './ProjectCard';
 import { ScreenShareOff, Search } from 'lucide-react';
 import Link from 'next/link';
 
-const Projects = () => {
+interface ProjectsProps {
+  projects: Project[];
+}
 
+const Projects = ({ projects }: ProjectsProps) => {
   const [selectedCategory, setSelectedCategory] = useState<Category>('All');
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredProjects = useMemo(() => {
-    return PROJECTS.filter(project => {
+    return projects.filter(project => {
       const matchesCategory = selectedCategory === 'All' || project.categories.includes(selectedCategory);
       const matchesSearch = project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         project.description.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [selectedCategory, searchQuery, projects]);
 
   const handleReset = () => {
     setSelectedCategory('All');
@@ -38,6 +41,7 @@ const Projects = () => {
             </p>
           </div>
         </div>
+
         <div className="flex-1 flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-10 pb-8 border-b border-slate-200 dark:border-[#222f49]">
           <div className="flex flex-wrap items-center bg-slate-100 dark:bg-white/5 p-1 rounded-2xl w-fit">
             {CATEGORIES.map((category) => (
@@ -55,39 +59,45 @@ const Projects = () => {
           </div>
 
           <div className="relative w-full lg:max-w-xs">
-            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xl">
-              <Search />
-            </span>
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none w-5 h-5" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search projects..."
-              className="w-full h-12 pl-12 pr-4 bg-slate-100 dark:bg-white/5 border-none focus:ring-2 focus:ring-primary rounded-2xl text-sm placeholder:text-slate-500 dark:placeholder:text-slate-500 text-slate-900 dark:text-white transition-all outline-none"
+              className="w-full h-12 pl-12 pr-4 bg-slate-100 dark:bg-white/5 border-none focus:ring-2 focus:ring-primary rounded-2xl text-sm placeholder:text-slate-500 text-slate-900 dark:text-white transition-all outline-none"
             />
           </div>
         </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {filteredProjects.length > 0 ? (
             filteredProjects.map((project) => (
-              <Link
-                key={project.id}
-                href={`/project/${project.id}`}
-                className="block"
-                prefetch={false}
-              >
-                <ProjectCard
-                  project={project}
-                />
+              <Link key={project.id} href={`/project/${project.id}`}>
+                <ProjectCard project={project} />
               </Link>
             ))
           ) : (
-            <div className="col-span-full py-32 flex flex-col items-center justify-center text-slate-500">
-              <span className="mb-6 opacity-10">
-                <ScreenShareOff className="w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32" />
-              </span>
-              <p className="text-2xl font-black tracking-tight text-slate-400 dark:text-slate-600">No matches found</p>
-              <button onClick={handleReset} className="mt-4 text-primary font-bold hover:underline">Clear all filters</button>
+            <div className="col-span-full py-32 flex flex-col items-center justify-center text-center">
+              <div className="bg-slate-100 dark:bg-white/5 p-6 rounded-full mb-6">
+                <ScreenShareOff className="w-16 h-16 text-slate-400 opacity-50" />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                {searchQuery || selectedCategory !== 'All'
+                  ? "No projects match your search"
+                  : "Oops! Projects not available"}
+              </h3>
+              <p className="text-slate-500 dark:text-slate-400 max-w-sm mx-auto mb-8">
+                {searchQuery || selectedCategory !== 'All'
+                  ? "Try adjusting your filters or search terms to find what you're looking for."
+                  : "We're having trouble fetching the projects right now. Please try again later."}
+              </p>
+
+              {(searchQuery || selectedCategory !== 'All') && (
+                <button onClick={handleReset} className="text-primary font-bold hover:underline">
+                  Clear all filters
+                </button>
+              )}
             </div>
           )}
         </div>
