@@ -1,5 +1,33 @@
 import { Project, ExperienceItem, SkillCategory, Category } from "@/types/portfolio";
 
+export const portfolioConfig = {
+  name: "M.RISWAN",
+  title: "Front end Engineer Enthusiast",
+  description: "Portofolio M.RISWAN menampilkan proyek-proyek terbaik, keahlian di bidang Web Development, Frontend dan UI/UX Design dengan teknologi modern.",
+  location: "West Java, Indonesia",
+
+  email: "m.riswan0921@gmail.com",
+
+  socialLinks: {
+    linkedin: "https://linkedin.com/in/m-riswan",
+    github: "https://github.com/MuhRiswan",
+  },
+
+  // SEO Information
+  seo: {
+    ogImage: "/img/profile.png",
+    url: "https://mriswan.vercel.app/",
+    twitterHandle: "@riswan",
+    keywords: ["M.RISWAN", "Riswan", "Portfolio", "Web Developer", "Frontend Developer", "Frontend Engineer", "UI/UX Design", "Next.js", "React", "Javascript", "Typescript", "Portfolio Website", "Tailwind CSS", "Modern Web", "Desain", "West Developer", "West Java Developer", "Indonesia Web Developer", "Project", "Web Developer Indonesia"],
+    authors: [
+      {
+        name: "M.RISWAN",
+        url: "https://github.com/MuhRiswan",
+      },
+    ],
+  },
+};
+
 export const SKILLS: SkillCategory[] = [
   {
     title: "Frontend Core",
