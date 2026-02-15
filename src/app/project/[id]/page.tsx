@@ -8,7 +8,7 @@ import ProjectHeader from "./_components/ProjectHeader";
 import LoadingCarousel from "./_components/LoadingCarousel";
 import ProjectCarousel from "./_components/ProjectCarousel";
 import { redirect } from "next/navigation";
-import { getProjectById, PROJECTS_REVALIDATE } from "@/services/projects";
+import { getProjectById } from "@/services/projects";
 
 const ProjectSidebar = lazy(() => import('@/app/project/[id]/_components/ProjectSidebar'));
 const ProjectContent = lazy(() => import('@/app/project/[id]/_components/ProjectContent'));
