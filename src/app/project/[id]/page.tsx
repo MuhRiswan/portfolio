@@ -1,18 +1,14 @@
-// Revalidate data firebase agar refetch
 export const revalidate = 3600;
 
-import { db } from "@/lib/firebase";
-import { collection, getDocs } from "firebase/firestore";
 import { lazy, Suspense } from "react";
 import ProjectHeader from "./_components/ProjectHeader";
 import LoadingCarousel from "./_components/LoadingCarousel";
 import ProjectCarousel from "./_components/ProjectCarousel";
 import { redirect } from "next/navigation";
-import { getProjectById } from "@/services/projects";
+import { getAllProjects, getProjectById } from "@/services/projects";
 
 const ProjectSidebar = lazy(() => import('@/app/project/[id]/_components/ProjectSidebar'));
 const ProjectContent = lazy(() => import('@/app/project/[id]/_components/ProjectContent'));
-
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -36,12 +32,9 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   };
 }
 
-// Generate Static Params agar halaman cepat diakses (SSG)
 export async function generateStaticParams() {
-  const querySnapshot = await getDocs(collection(db, "projects"));
-  return querySnapshot.docs.map(doc => ({
-    id: doc.id,
-  }));
+  const projects = await getAllProjects();
+  return projects.map((p) => ({ id: p.id }));
 }
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ id: string }> }) {
