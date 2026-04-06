@@ -52,12 +52,12 @@ const Hero = () => {
             <div className="absolute inset-0 opacity-20 pointer-events-none"></div>
             <Image
               src="/img/profile.png"
-              alt="Professional developer profile, modern, bright"
-              width={500}
-              height={500}
-              className="w-full h-full object-cover rounded-2xl shadow-2xl transition-transform hover:scale-[1.04] duration-700"
+              alt="M. Riswan - Professional Frontend Developer" // Alt harus deskriptif untuk SEO
+              fill // Gunakan fill dipadukan dengan parent relative daripada strict width/height untuk responsive yang lebih baik
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px" // Wajib untuk LCP
+              className="object-cover rounded-2xl shadow-2xl transition-transform hover:scale-[1.04] duration-700"
               style={{ objectPosition: "center 42%" }}
-              priority
+              priority // Sudah benar
             />
             <div className="absolute bottom-6 left-2 bg-surface-dark/95 backdrop-blur-xl p-2.5 rounded-xl border border-surface-border shadow-xl animate-bounce-slow">
               <div className="flex items-center gap-2">
@@ -65,7 +65,7 @@ const Hero = () => {
                   <span className="material-symbols-outlined text-base font-bold" style={{ fontSize: 16 }}>MR</span>
                 </div>
                 <div>
-                  <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wide">M.RISWAN</div>
+                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wide">M.RISWAN</div>
                   <div className="text-base font-black text-white leading-none">Front end Developer</div>
                 </div>
               </div>

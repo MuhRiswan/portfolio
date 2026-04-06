@@ -66,20 +66,20 @@ const Contact = () => {
             <form className="flex flex-col gap-5 sm:gap-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <div className="flex flex-col gap-2 sm:gap-3">
-                  <label className="text-xs sm:text-sm md:text-base font-black text-slate-500 uppercase tracking-[0.2em] px-1">
+                  <label className="text-xs sm:text-sm md:text-base font-black text-slate-400 uppercase tracking-[0.2em] px-1">
                     Name
                   </label>
                   <Input variant="primary" placeholder="Sandi Putra" type="text" />
                 </div>
                 <div className="flex flex-col gap-2 sm:gap-3">
-                  <label className="text-xs sm:text-sm md:text-base font-black text-slate-500 uppercase tracking-[0.2em] px-1">
+                  <label className="text-xs sm:text-sm md:text-base font-black text-slate-400 uppercase tracking-[0.2em] px-1">
                     Email
                   </label>
                   <Input variant="primary" placeholder="sandiputra@gmail.com" type="email" />
                 </div>
               </div>
               <div className="flex flex-col gap-2 sm:gap-3">
-                <label className="text-xs sm:text-sm md:text-base font-black text-slate-500 uppercase tracking-[0.2em] px-1">
+                <label className="text-xs sm:text-sm md:text-base font-black text-slate-400 uppercase tracking-[0.2em] px-1">
                   Message
                 </label>
                 <Textarea placeholder="How can I help you?" />
