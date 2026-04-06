@@ -17,7 +17,7 @@ export default function Error({
   return (
     <div className="min-h-[60vh] flex flex-col items-center justify-center px-6">
       <h2 className="text-3xl font-black mb-4">Something went wrong!</h2>
-      <p className="text-slate-500 mb-8 text-center">
+      <p className="text-slate-400 mb-8 text-center">
         We encountered an error while loading the project details.
       </p>
       <div className="flex gap-4">

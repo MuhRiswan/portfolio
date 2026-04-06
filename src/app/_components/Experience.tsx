@@ -31,7 +31,7 @@ const Experience: React.FC = () => {
                     <div className="group p-8 rounded-[2rem] border-2 border-surface-border bg-surface-dark/40 backdrop-blur-xl hover:border-primary/40 hover:bg-surface-dark/60 transition-all duration-500 shadow-xl hover:shadow-primary/5">
                       <div className={`flex flex-col gap-2 mb-5 ${isEven ? 'md:items-end' : 'md:items-start'}`}>
                         <div className={`flex items-center gap-2 mb-1 ${isEven ? 'md:flex-row-reverse' : ''}`}>
-                          <span className={`text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg ${item.isActive ? 'text-primary bg-primary/10 border border-primary/20' : 'text-slate-500 bg-slate-900 border border-slate-800'}`}>
+                          <span className={`text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg ${item.isActive ? 'text-primary bg-primary/10 border border-primary/20' : 'text-slate-400 bg-slate-900 border border-slate-800'}`}>
                             {item.period}
                           </span>
                         </div>
@@ -49,7 +49,7 @@ const Experience: React.FC = () => {
 
                       <div className={`flex flex-wrap gap-2 ${isEven ? 'md:justify-end' : ''}`}>
                         {item.skills.map(skill => (
-                          <span key={skill} className="text-[9px] font-black text-slate-500 tracking-widest uppercase bg-slate-900/50 border border-slate-800/50 px-2.5 py-1.5 rounded-md hover:border-primary/30 hover:text-slate-300 transition-all cursor-default">
+                          <span key={skill} className="text-[9px] font-black text-slate-400 tracking-widest uppercase bg-slate-900/50 border border-slate-800/50 px-2.5 py-1.5 rounded-md hover:border-primary/30 hover:text-slate-300 transition-all cursor-default">
                             {skill}
                           </span>
                         ))}

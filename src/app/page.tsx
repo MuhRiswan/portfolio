@@ -8,17 +8,20 @@ import { getAllProjects } from "@/services/projects";
 
 export const revalidate = 3600;
 
-export default async function Home() {
+async function ProjectsList() {
   const projects = await getAllProjects();
+  return <Projects projects={projects} />;
+}
 
+export default function Home() {
   return (
-    <Suspense fallback={<LoadingHome />}>
-      <div className="animate-in fade-in duration-700">
-        <Hero />
-        <Experience />
-        <Projects projects={projects} />
-        <Contact />
-      </div>
-    </Suspense>
+    <div className="animate-in fade-in duration-700">
+      <Hero />
+      <Experience />
+      <Suspense fallback={<LoadingHome />}>
+        <ProjectsList />
+      </Suspense>
+      <Contact />
+    </div>
   );
 }

@@ -21,7 +21,7 @@ export default function ProjectMetrics({ metrics }: ProjectMetricsProps) {
           <div key={i} className="relative overflow-hidden p-8 rounded-[2rem] bg-[#182234] border border-[#222f49] group shadow-sm hover:shadow-primary/5 transition-all">
             <div className="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
             <p className="text-4xl font-black text-primary mb-1">{metric.value}</p>
-            <p className="text-xs uppercase tracking-widest font-bold text-slate-500">{metric.label}</p>
+            <p className="text-xs uppercase tracking-widest font-bold text-slate-400">{metric.label}</p>
           </div>
         ))}
       </div>
