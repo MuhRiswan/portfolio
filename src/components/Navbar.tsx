@@ -1,29 +1,8 @@
-"use client"
 import Link from "next/link";
 import { Code } from "lucide-react";
 
 const Navbar = () => {
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // const pathname = usePathname();
-
-  // const getCurrentPage = () => {
-  //   if (pathname === "/" || pathname === "/home") return "home";
-  //   const segment = pathname.split("/").filter(Boolean)[0];
-  //   return segment ?? "home";
-  // };
-
-  // const currentPage = getCurrentPage();
-
-  // const navItems = [
-  //   { label: 'Work', target: 'home' as const },
-  //   { label: 'Design System', target: 'design-system' as const },
-  //   { label: 'Experience', target: 'experience' as const },
-  // ];
-
-  // const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-  // const handleLinkClick = () => setIsMenuOpen(false);
-
+  
   return (
     <header className="sticky top-0 z-[100] w-full border-b border-border bg-background/80 backdrop-blur-md px-6 md:px-12 py-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -31,11 +10,15 @@ const Navbar = () => {
         <Link
           href="/"
           className="flex items-center gap-3 cursor-pointer group"
+          aria-label="Go to homepage"
         >
           <div className="p-2 bg-primary rounded-lg group-hover:scale-110 transition-transform">
-            <Code />
+            <Code aria-hidden="true" />
           </div>
-          <h1 className="text-foreground text-xl font-bold tracking-tight">Developer</h1>
+          {/* Ubah <h1> menjadi <span> untuk menjaga SEO Hierarki halaman utama */}
+          <span className="text-foreground text-xl font-bold tracking-tight">
+            Developer
+          </span>
         </Link>
 
         {/* Desktop Nav */}
@@ -53,11 +36,17 @@ const Navbar = () => {
             </Link>
           ))}
         </nav> */}
-        <button className="hidden sm:block btn-primary">
+        {/* <button className="hidden sm:block btn-primary">
           <Link href="#contact">
           Hire Me
           </Link>
-        </button>
+        </button> */}
+        <Link 
+          href="#contact" 
+          className="inline-flex btn-primary"
+        >
+          Hire Me
+        </Link>
         {/* <div className="flex items-center gap-4">
           <button className="hidden sm:block btn-primary">
             Hire Me

@@ -5,9 +5,10 @@ import Image from 'next/image';
 
 interface ProjectCardProps {
   project: Project;
+  priority?: boolean;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, priority = false }) => {
   return (
 
     <div
@@ -15,13 +16,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       className="group relative rounded-3xl border border-surface-border bg-surface-dark overflow-hidden transition-all hover:-translate-y-2 cursor-pointer"
     >
       <div className="aspect-[16/10] w-full relative overflow-hidden">
-        <Image
+        {/* <Image
           src={project.imageUrl[0].url}
           alt={project.title}
           fill
           className="absolute inset-0 object-cover object-center transition-transform duration-1000 group-hover:scale-110"
           loading='lazy'
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        /> */}
+        <Image
+          src={project.imageUrl[0].url}
+          alt={project.title}
+          fill
+          priority={priority} // Gunakan prop di sini
+          loading={priority ? undefined : "lazy"} // Jangan pakai lazy jika priority true
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="absolute inset-0 object-cover object-center transition-transform duration-1000 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent opacity-80"></div>
         <div className="absolute top-6 left-6">
