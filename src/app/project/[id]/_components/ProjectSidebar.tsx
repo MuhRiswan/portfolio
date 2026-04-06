@@ -35,15 +35,15 @@ export default function ProjectSidebar({ techStack, details }: ProjectSidebarPro
         <h3 className="text-white font-bold mb-6">Details</h3>
         <div className="space-y-6">
           <div>
-            <p className="text-[10px] uppercase tracking-wider font-bold text-slate-500 mb-1">Role</p>
+            <p className="text-[10px] uppercase tracking-wider font-bold text-slate-400 mb-1">Role</p>
             <p className="text-sm font-medium text-slate-200">{details.role}</p>
           </div>
           <div>
-            <p className="text-[10px] uppercase tracking-wider font-bold text-slate-500 mb-1">Timeline</p>
+            <p className="text-[10px] uppercase tracking-wider font-bold text-slate-400 mb-1">Timeline</p>
             <p className="text-sm font-medium text-slate-200">{details.timeline}</p>
           </div>
           <div>
-            <p className="text-[10px] uppercase tracking-wider font-bold text-slate-500 mb-1">Client</p>
+            <p className="text-[10px] uppercase tracking-wider font-bold text-slate-400 mb-1">Client</p>
             <p className="text-sm font-medium text-slate-200">{details.client}</p>
           </div>
         </div>
