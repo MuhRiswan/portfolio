@@ -11,16 +11,13 @@ export default function ProjectCarousel({ images }: ProjectCarouselProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeSlide, setActiveSlide] = useState(0);
   
-  // State untuk melacak gambar mana saja yang sudah selesai diunduh
   const [loadedImages, setLoadedImages] = useState<Record<number, boolean>>({});
 
-  // SENIOR PATTERN: Intersection Observer (Sangat ringan di CPU)
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Ambil index dari atribut data-index
             const index = Number(entry.target.getAttribute("data-index"));
             setActiveSlide(index);
           }
@@ -28,7 +25,7 @@ export default function ProjectCarousel({ images }: ProjectCarouselProps) {
       },
       {
         root: scrollRef.current,
-        threshold: 0.6, // Trigger saat 60% gambar terlihat di layar
+        threshold: 0.6,
       }
     );
 
@@ -37,7 +34,7 @@ export default function ProjectCarousel({ images }: ProjectCarouselProps) {
       Array.from(children).forEach((child) => observer.observe(child));
     }
 
-    return () => observer.disconnect(); // Cleanup untuk menghindari memory leak
+    return () => observer.disconnect();
   }, [images]);
 
   const scrollTo = useCallback((idx: number) => {
@@ -49,7 +46,6 @@ export default function ProjectCarousel({ images }: ProjectCarouselProps) {
 
   return (
     <div className="relative group">
-      {/* Hapus onScroll yang mahal komputasinya */}
       <div
         ref={scrollRef}
         className="flex overflow-x-auto snap-x snap-mandatory [-ms-scrollbar-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden gap-4 pb-4"
@@ -57,23 +53,17 @@ export default function ProjectCarousel({ images }: ProjectCarouselProps) {
         {images.map((img, idx) => (
           <div 
             key={idx} 
-            data-index={idx} // Metadata untuk Intersection Observer
+            data-index={idx}
             className="flex-none w-full md:w-[85%] snap-center"
           >
             <div className="flex flex-col gap-4 rounded-2xl bg-[#182234] border border-[#222f49] overflow-hidden p-2 shadow-lg">
-              {/* Container gambar diberi background gelap sebagai placeholder paling dasar */}
               <div className="w-full aspect-video rounded-xl overflow-hidden relative bg-[#0b0f1a]">
-                
-                {/* IMPLEMENTASI BLUR-UP:
-                  - Awal: scale-110 (agak zoom), blur-2xl, opacity-0
-                  - Selesai Load: scale-100 (normal), blur-0, opacity-100
-                  - Durasi: 700ms dengan timing function yang elegan
-                */}
+             
                 <Image
                   src={img.url}
                   alt={img.title || `Project Detail Image ${idx + 1}`}
                   fill
-                  priority={idx === 0} // WAJIB: Gambar pertama priority true agar LCP cepat
+                  priority={idx === 0} 
                   loading={idx === 0 ? undefined : "lazy"}
                   onLoad={() => setLoadedImages(prev => ({ ...prev, [idx]: true }))}
                   className={`
