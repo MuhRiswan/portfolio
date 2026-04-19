@@ -1,4 +1,4 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
   // async redirects() {
@@ -22,8 +22,12 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "**.vercel-storage.com",
       },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+      },
     ],
   },
-};
+}
 
-export default nextConfig;
+export default nextConfig
