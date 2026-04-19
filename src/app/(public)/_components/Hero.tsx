@@ -1,7 +1,6 @@
-
-import Image from 'next/image';
-import { Button } from '../../components/ui/button';
-import Link from 'next/link';
+import { Button } from "@/components/ui/button"
+import Image from "next/image"
+import Link from "next/link"
 
 const Hero = () => {
   return (
@@ -20,9 +19,7 @@ const Hero = () => {
               Building Scalable <br />
               <span className="text-primary bg-clip-text  bg-gradient-to-r from-blue-400 to-blue-600">Web Experiences</span>
             </h1>
-            <p className="text-xl text-slate-400 max-w-2xl leading-relaxed text-center lg:text-start">
-              I’m a Frontend Developer who enjoys building modern, fast, and user-friendly web applications. I work mostly with Next.js, Vue, and TypeScript. For me, good frontend is not just about how it looks, but how it feels and performs for users. I’m continuously learning and improving to build better, more impactful digital products.
-            </p>
+            <p className="text-xl text-slate-400 max-w-2xl leading-relaxed text-center lg:text-start">I’m a Frontend Developer who enjoys building modern, fast, and user-friendly web applications. I work mostly with Next.js, Vue, and TypeScript. For me, good frontend is not just about how it looks, but how it feels and performs for users. I’m continuously learning and improving to build better, more impactful digital products.</p>
           </div>
 
           <div className="flex gap-3 flex-wrap justify-center lg:justify-start">
@@ -35,9 +32,7 @@ const Hero = () => {
 
           <div className="flex flex-wrap items-center gap-2 lg:gap-5 pt-4">
             <Button asChild variant="primary" size="xl">
-              <Link href="#projects">
-                View Projects
-              </Link>
+              <Link href="#projects">View Projects</Link>
             </Button>
             <Button variant="secondary" size="xl" disabled>
               Download CV
@@ -46,23 +41,15 @@ const Hero = () => {
         </div>
 
         <div className="hidden lg:flex lg:col-span-5 relative items-center justify-center">
-          <div className="relative rounded-3xl border border-surface-border bg-[#0b0f1a] p-2 sm:p-4 lg:p-7 glow-blue overflow-hidden flex items-center justify-center"
-            style={{ width: "100%", height: "100%", minHeight: "370px", minWidth: "370px", aspectRatio: "1/1", maxWidth: "500px", maxHeight: "500px" }}
-          >
+          <div className="relative rounded-3xl border border-surface-border bg-[#0b0f1a] p-2 sm:p-4 lg:p-7 glow-blue overflow-hidden flex items-center justify-center" style={{ width: "100%", height: "100%", minHeight: "370px", minWidth: "370px", aspectRatio: "1/1", maxWidth: "500px", maxHeight: "500px" }}>
             <div className="absolute inset-0 opacity-20 pointer-events-none"></div>
-            <Image
-              src="/img/profile.png"
-              alt="M. Riswan - Professional Frontend Developer" // Alt harus deskriptif untuk SEO
-              fill // Gunakan fill dipadukan dengan parent relative daripada strict width/height untuk responsive yang lebih baik
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px" // Wajib untuk LCP
-              className="object-cover rounded-2xl shadow-2xl transition-transform hover:scale-[1.04] duration-700"
-              style={{ objectPosition: "center 42%" }}
-              priority // Sudah benar
-            />
+            <Image src="/img/profile.png" alt="M. Riswan - Professional Frontend Developer" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px" className="object-cover rounded-2xl shadow-2xl transition-transform hover:scale-[1.04] duration-700" style={{ objectPosition: "center 42%" }} priority />
             <div className="absolute bottom-6 left-2 bg-surface-dark/95 backdrop-blur-xl p-2.5 rounded-xl border border-surface-border shadow-xl animate-bounce-slow">
               <div className="flex items-center gap-2">
                 <div className="p-1.5 bg-green-500/10 text-green-500 rounded-lg">
-                  <span className="material-symbols-outlined text-base font-bold" style={{ fontSize: 16 }}>MR</span>
+                  <span className="material-symbols-outlined text-base font-bold" style={{ fontSize: 16 }}>
+                    MR
+                  </span>
                 </div>
                 <div>
                   <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wide">M.RISWAN</div>
@@ -74,7 +61,7 @@ const Hero = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero
