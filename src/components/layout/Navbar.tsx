@@ -1,24 +1,15 @@
-import Link from "next/link";
-import { Code } from "lucide-react";
+import Link from "next/link"
+import { Code } from "lucide-react"
 
 const Navbar = () => {
-  
   return (
     <header className="sticky top-0 z-[100] w-full border-b border-border bg-background/80 backdrop-blur-md px-6 md:px-12 py-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-
-        <Link
-          href="/"
-          className="flex items-center gap-3 cursor-pointer group"
-          aria-label="Go to homepage"
-        >
+        <Link href="/" className="flex items-center gap-3 cursor-pointer group" aria-label="Go to homepage">
           <div className="p-2 bg-primary rounded-lg group-hover:scale-110 transition-transform">
             <Code aria-hidden="true" />
           </div>
-          {/* Ubah <h1> menjadi <span> untuk menjaga SEO Hierarki halaman utama */}
-          <span className="text-foreground text-xl font-bold tracking-tight">
-            Developer
-          </span>
+          <span className="text-foreground text-xl font-bold tracking-tight">Developer</span>
         </Link>
 
         {/* Desktop Nav */}
@@ -41,10 +32,7 @@ const Navbar = () => {
           Hire Me
           </Link>
         </button> */}
-        <Link 
-          href="#contact" 
-          className="inline-flex btn-primary"
-        >
+        <Link href="#contact" className="inline-flex btn-primary">
           Hire Me
         </Link>
         {/* <div className="flex items-center gap-4">
@@ -81,7 +69,7 @@ const Navbar = () => {
         </nav>
       </div> */}
     </header>
-  );
-};
+  )
+}
 
 export default Navbar

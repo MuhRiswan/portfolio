@@ -1,34 +1,31 @@
-import * as React from "react";
-import { cn } from "@/lib/utils";
+import * as React from "react"
+import { cva, type VariantProps } from "class-variance-authority"
+import { cn } from "@/lib/utils"
 
-type InputVariant = "primary" | "secondary";
+const inputVariants = cva("flex w-full rounded-2xl border border-surface-border bg-slate-900/50 text-white placeholder:text-slate-700 transition-all outline-none focus:ring-1 focus:ring-primary focus:border-primary disabled:cursor-not-allowed disabled:opacity-50", {
+  variants: {
+    variant: {
+      primary: "border-surface-border focus:border-primary",
+      secondary: "border-slate-700 bg-transparent focus:bg-slate-900/50",
+    },
+    inputSize: {
+      sm: "px-3 py-1.5 text-xs",
+      md: "px-4 py-3 text-sm",
+      lg: "px-5 py-3 text-base md:text-lg",
+    },
+  },
+  defaultVariants: {
+    variant: "primary",
+    inputSize: "md",
+  },
+})
 
-interface InputProps extends React.ComponentProps<"input"> {
-  variant?: InputVariant;
-}
+export interface InputProps extends Omit<React.ComponentProps<"input">, "size">, VariantProps<typeof inputVariants> {}
 
-const inputVariants = {
-  primary:
-    "bg-slate-900/50 border border-surface-border rounded-2xl px-4 sm:px-5 py-3 sm:py-4 text-base md:text-lg text-white placeholder:text-slate-700 transition-all outline-none focus:ring-primary focus:border-primary w-full",
-  secondary: 
-    "bg-slate-900/50 border border-surface-border rounded-2xl px-4 sm:px-5 py-3 sm:py-4 text-base md:text-lg text-white placeholder:text-slate-700 transition-all outline-none focus:ring-primary focus:border-primary w-full"
-};
+const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, variant, inputSize, type, ...props }, ref) => {
+  return <input type={type} className={cn(inputVariants({ variant, inputSize, className }))} ref={ref} {...props} />
+})
 
-function Input({
-  className,
-  type,
-  variant = "primary",
-  ...props
-}: InputProps) {
-  return (
-    <input
-      type={type}
-      data-slot="input"
-      className={cn(inputVariants[variant], className)}
-      {...props}
-    />
-  );
-}
+Input.displayName = "Input"
 
-export { Input };
-
+export { Input }
