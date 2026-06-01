@@ -5,6 +5,7 @@ import { del } from "@vercel/blob"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { ProjectPayload } from "@/types/projects"
+import { revalidatePath } from "next/cache"
 
 export async function createProjectAction(data: ProjectPayload) {
   const session = await getServerSession(authOptions)
@@ -32,6 +33,9 @@ export async function createProjectAction(data: ProjectPayload) {
         details: data.details,
       },
     })
+
+    revalidatePath("/")
+    revalidatePath("/projects")
 
     return { success: true, id: project.id }
   } catch (error) {
@@ -83,6 +87,10 @@ export async function updateProjectAction(data: ProjectPayload) {
       },
     })
 
+    revalidatePath("/")
+    revalidatePath("/projects")
+    revalidatePath("/project/" + project.id)
+
     return { success: true, id: project.id }
   } catch (error) {
     console.error("Update error:", error)
@@ -115,6 +123,9 @@ export async function deleteProjectAction(id: string) {
       await del(urlsToDelete)
       console.log("Cleanup: Blobs deleted successfully")
     }
+
+    revalidatePath("/")
+    revalidatePath("/projects")
 
     return { success: true }
   } catch (error) {

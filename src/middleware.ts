@@ -5,9 +5,9 @@ import { getToken } from "next-auth/jwt"
 export async function middleware(req: NextRequest) {
   const { nextUrl } = req
 
-  if (nextUrl.pathname === "/project") {
-    return NextResponse.redirect(new URL("/", req.url))
-  }
+  // if (nextUrl.pathname === "/project") {
+  //   return NextResponse.redirect(new URL("/", req.url))
+  // }
 
   if (nextUrl.pathname.startsWith("/admin")) {
     const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET })

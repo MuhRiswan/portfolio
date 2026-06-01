@@ -1,15 +1,15 @@
 import { Suspense } from "react"
 import Contact from "./_components/Contact"
 import LoadingHome from "./_components/LoadingHome"
-import { getAllProjects } from "@/services/projects"
 import Projects from "@/components/shared/Projects"
 import Hero from "./_components/Hero"
 import Experience from "./_components/Experience"
+import { getProjects } from "@/services/projects"
 
 export const revalidate = 3600
 
 async function ProjectsList() {
-  const projects = await getAllProjects()
+  const projects = await getProjects()
   return <Projects projects={projects} />
 }
 

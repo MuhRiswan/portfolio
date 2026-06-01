@@ -1,21 +1,21 @@
-export const revalidate = 3600;
+import { redirect } from "next/navigation"
+import { getProjectById, getProjects } from "@/services/projects"
+import ProjectHeader from "./_components/ProjectHeader"
+import ProjectCarousel from "./_components/ProjectCarousel"
+import ProjectSidebar from "./_components/ProjectSidebar"
+import ProjectContent from "./_components/ProjectContent"
 
-import ProjectHeader from "./_components/ProjectHeader";
-import ProjectCarousel from "./_components/ProjectCarousel";
-import ProjectSidebar from "./_components/ProjectSidebar";
-import ProjectContent from "./_components/ProjectContent";
-import { redirect } from "next/navigation";
-import { getAllProjects, getProjectById } from "@/services/projects";
+export const revalidate = 3600
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-  const project = await getProjectById(id);
+  const { id } = await params
+  const project = await getProjectById(id)
 
   if (!project) {
     return {
       title: "Project Not Found",
       description: "The requested project was not found",
-    };
+    }
   }
 
   return {
@@ -24,22 +24,22 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     openGraph: {
       title: project.title,
       description: project.description,
-      images: [project.imageUrl[0]?.url],
+      images: [project.imageUrl[0]?.url || "/img/og-image-portfolio.svg"],
     },
-  };
+  }
 }
 
 export async function generateStaticParams() {
-  const projects = await getAllProjects();
-  return projects.map((p) => ({ id: p.id }));
+  const projects = await getProjects()
+  return projects.map((p) => ({ id: p.id }))
 }
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-  const project = await getProjectById(id);
+  const { id } = await params
+  const project = await getProjectById(id)
 
   if (!project) {
-    redirect("/");
+    redirect("/")
   }
 
   return (
@@ -52,10 +52,10 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           <ProjectContent project={project} />
         </div>
 
-        <div className="w-full lg:w-80">
+        <div className="w-full lg:w-80 shrink-0">
           <ProjectSidebar techStack={project.techStack} details={project.details} />
         </div>
       </div>
     </div>
-  );
+  )
 }
